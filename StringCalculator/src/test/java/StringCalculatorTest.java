@@ -26,9 +26,12 @@ class StringCalculatorTest {
     @Test
     public void shouldReturnSumOfTwoNumbersDelimitedByANewLine(){
         assertEquals(3, StringCalculator.add("1\n2"));
-
-        //assertThrows(StringCalculator.add(), new RuntimeException());
     }
 
+    @Test
+    public void shouldThrowRuntimeErrorWhenNegativePresent(){
+        RuntimeException e = assertThrows(RuntimeException.class, () -> StringCalculator.add("-1,2,-3"));
+        assertEquals("Negatives are not allowed.", e.getMessage());
+    }
 
 }

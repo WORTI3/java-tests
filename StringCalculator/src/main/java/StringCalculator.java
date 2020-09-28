@@ -9,10 +9,10 @@ public class StringCalculator {
     private static float result;
 
     public static int add(String input) throws RuntimeException {
-        if(input.isEmpty() || input == null) {
+        if(input.isEmpty()) {
             return 0;
         }else if(input.contains("-")){
-            throw new RuntimeException("Negatives are not allowed: " + input);
+            throw new RuntimeException("Negatives are not allowed.");
         }else{
             calculateSumOf(separateInput(input));
             return formInt(printInteger());
